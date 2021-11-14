@@ -11,15 +11,15 @@
         android:id="@+id/game_field_InfoBar_iv"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/game_field_back_img"
-        app:layout_constraintEnd_toEndOf="@+id/game_field_back_img"
+        app:layout_constraintBottom_toTopOf="@+id/game_field_back_img_iv"
+        app:layout_constraintEnd_toEndOf="@+id/game_field_back_img_iv"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/game_field_back_img"
+        app:layout_constraintStart_toStartOf="@+id/game_field_back_img_iv"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/no_winner" />
 
     <ImageView
-        android:id="@+id/game_field_back_img"
+        android:id="@+id/game_field_back_img_iv"
         android:layout_width="350dp"
         android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,15 +30,15 @@
         app:srcCompat="@drawable/back" />
 
     <ImageView
-        android:id="@+id/game_field_top_img"
+        android:id="@+id/game_field_top_img_iv"
         android:layout_width="350dp"
         android:layout_height="350dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/game_field_back_img"
-        app:layout_constraintEnd_toEndOf="@+id/game_field_back_img"
+        app:layout_constraintBottom_toBottomOf="@+id/game_field_back_img_iv"
+        app:layout_constraintEnd_toEndOf="@+id/game_field_back_img_iv"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/game_field_back_img"
-        app:layout_constraintTop_toTopOf="@+id/game_field_back_img"
+        app:layout_constraintStart_toStartOf="@+id/game_field_back_img_iv"
+        app:layout_constraintTop_toTopOf="@+id/game_field_back_img_iv"
         app:srcCompat="@drawable/back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

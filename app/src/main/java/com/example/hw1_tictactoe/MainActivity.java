@@ -15,12 +15,13 @@ import android.widget.ImageView;
 
 import com.example.hw1_tictactoe.DataVault.DataVault;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final int CONSTLENGTH = 3;
+    private static final int CONSTLENGTH = 3;
 
-    private static State[][] deskData;
+    private static DataVault data;
     private static Button[][] buttonsLinks;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        setContentView(R.layout.game_field); // for testing todo: delete
         //------------------------------------
-
-        deskData = DataVault.getInstance().getData();
-
+        data = DataVault.getInstance();
 
 
 
 
+        // Bindings:
         // --------------------- Main Menu - activity_main ---------------------
 
         Button menu_start_button = findViewById(R.id.menu_start_button);
@@ -68,18 +68,67 @@ public class MainActivity extends AppCompatActivity {
         // --------------------------------------------------------------------
 
 
+//
+//        for(int i = 0; i < CONSTLENGTH; ++i){
+//            for(int j = 0; j < CONSTLENGTH; ++j){
+//                buttonsLinks[i][j].setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+////                        Log.d("TAG", "Try to make move = Player: " + currentPlayer + " Where: " + buttonsLinks[i][j].getId()+ " *(RawValues[0,1,2])");
+//                        // TODO: 14.11.2021
+//                    }
+//
+//                });
+//            }
+//        }
 
-        for(int i = 0; i < CONSTLENGTH; ++i){
-            for(int j = 0; j < CONSTLENGTH; ++j){
-                buttonsLinks[i][j].setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        // TODO: 14.11.2021
-                    }
-                });
-            }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        int x,y;
+
+        switch (v.getId()) {
+
+            case R.id.game_field_button00:
+                x = 0; y = 0; break;
+
+            case R.id.game_field_button01:
+                x = 0; y = 1; break;
+
+            case R.id.game_field_button02:
+                x = 0; y = 2; break;
+
+            case R.id.game_field_button10:
+                x = 1; y = 0; break;
+
+            case R.id.game_field_button11:
+                x = 1; y = 1; break;
+
+            case R.id.game_field_button12:
+                x = 1; y = 2; break;
+
+            case R.id.game_field_button20:
+                x = 2; y = 0; break;
+
+            case R.id.game_field_button21:
+                x = 2; y = 1; break;
+
+            case R.id.game_field_button22:
+                x = 2; y = 2; break;
+
+            default:
+                try {
+                    throw new Exception("Unknown button");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                x=-1;
+                y=-1;
+                break;
         }
-
-
+        Log.d("TAG", "Try to make move = Player: " + data.getCurrentPlayer() + " Where: " + x + y + " *(RawValues[0,1,2])");
+        data.makeMove(x,y);
     }
 }

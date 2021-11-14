@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
-        setContentView(R.layout.game_field); // for testing todo: delete
+        setContentView(R.layout.game_field); // for testing, todo: delete
         //------------------------------------
         data = DataVault.getInstance();
         buttonsLinks = new Button[CONSTLENGTH][CONSTLENGTH];
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Bindings:
         // --------------------- Main Menu - activity_main ---------------------
 
-//        Button menu_start_button = findViewById(R.id.menu_start_button); // for testing todo: enable
+//        Button menu_start_button = findViewById(R.id.menu_start_button); // for testing, todo: enable
         // TODO: if pressed >>>>  setContentView(R.layout.game_field);
 
 

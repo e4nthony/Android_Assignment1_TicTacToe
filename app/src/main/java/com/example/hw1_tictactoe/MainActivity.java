@@ -4,13 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 
 import com.example.hw1_tictactoe.DataVault.DataVault;
@@ -52,37 +47,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageView game_field_GreenLinesImagesContainer_iv = findViewById(R.id.game_field_GreenLinesImagesContainer_iv);
 
 
-        buttonsLinks[0][0] = findViewById(R.id.game_field_button00);
-        buttonsLinks[0][1] = findViewById(R.id.game_field_button01);
-        buttonsLinks[0][2] = findViewById(R.id.game_field_button02);
-        buttonsLinks[1][0] = findViewById(R.id.game_field_button10);
-        buttonsLinks[1][1] = findViewById(R.id.game_field_button11);
-        buttonsLinks[1][2] = findViewById(R.id.game_field_button12);
-        buttonsLinks[2][0] = findViewById(R.id.game_field_button20);
-        buttonsLinks[2][1] = findViewById(R.id.game_field_button21);
-        buttonsLinks[2][2] = findViewById(R.id.game_field_button22);
+        buttonsLinks[0][0] = findViewById(R.id.game_field_img_btn00);
+        buttonsLinks[0][1] = findViewById(R.id.game_field_img_btn01);
+        buttonsLinks[0][2] = findViewById(R.id.game_field_img_btn02);
+        buttonsLinks[1][0] = findViewById(R.id.game_field_img_btn10);
+        buttonsLinks[1][1] = findViewById(R.id.game_field_img_btn11);
+        buttonsLinks[1][2] = findViewById(R.id.game_field_img_btn12);
+        buttonsLinks[2][0] = findViewById(R.id.game_field_img_btn20);
+        buttonsLinks[2][1] = findViewById(R.id.game_field_img_btn21);
+        buttonsLinks[2][2] = findViewById(R.id.game_field_img_btn22);
 
         // ---- bottom ----
         Button game_field_PlayAgain_button = findViewById(R.id.game_field_PlayAgain_button);
 
         // --------------------------------------------------------------------
-
-
-//
-//        for(int i = 0; i < CONSTLENGTH; ++i){
-//            for(int j = 0; j < CONSTLENGTH; ++j){
-//                buttonsLinks[i][j].setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-////                        Log.d("TAG", "Try to make move = Player: " + currentPlayer + " Where: " + buttonsLinks[i][j].getId()+ " *(RawValues[0,1,2])");
-//                        // TODO: 14.11.2021
-//                    }
-//
-//                });
-//            }
-//        }
-
-
     }
 
     @Override
@@ -91,31 +69,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
 
-            case R.id.game_field_button00:
+            case R.id.game_field_img_btn00:
                 x = 0; y = 0; break;
 
-            case R.id.game_field_button01:
+            case R.id.game_field_img_btn01:
                 x = 0; y = 1; break;
 
-            case R.id.game_field_button02:
+            case R.id.game_field_img_btn02:
                 x = 0; y = 2; break;
 
-            case R.id.game_field_button10:
+            case R.id.game_field_img_btn10:
                 x = 1; y = 0; break;
 
-            case R.id.game_field_button11:
+            case R.id.game_field_img_btn11:
                 x = 1; y = 1; break;
 
-            case R.id.game_field_button12:
+            case R.id.game_field_img_btn12:
                 x = 1; y = 2; break;
 
-            case R.id.game_field_button20:
+            case R.id.game_field_img_btn20:
                 x = 2; y = 0; break;
 
-            case R.id.game_field_button21:
+            case R.id.game_field_img_btn21:
                 x = 2; y = 1; break;
 
-            case R.id.game_field_button22:
+            case R.id.game_field_img_btn22:
                 x = 2; y = 2; break;
 
             case R.id.game_field_PlayAgain_button:
@@ -130,7 +108,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
         }
-        Log.d("TAG", "Try to make move = Player: " + data.getCurrentPlayer() + " Where: " + x + y + " *(RawValues[0,1,2])");
-        data.makeMove(x,y);
+        State thisMoveWasPerformedBy = data.getCurrentPlayer();
+
+        Log.d("TAG", "Try to make move = Player: " + thisMoveWasPerformedBy + " Where: " + x + y + " *(RawValues[0,1,2])");
+
+        boolean result = data.makeMove(x,y);
+
+
+
     }
 }

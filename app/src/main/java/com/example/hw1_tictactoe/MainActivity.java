@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.hw1_tictactoe.DataVault.DataVault;
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int CONSTLENGTH = 3;
 
     private static DataVault data;
-    private static Button[][] buttonsLinks;
+    private static ImageButton[][] buttonsLinks;
 
 
     @Override
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.game_field); // for testing todo: delete
         //------------------------------------
         data = DataVault.getInstance();
-        buttonsLinks = new Button[CONSTLENGTH][CONSTLENGTH];
+        buttonsLinks = new ImageButton[CONSTLENGTH][CONSTLENGTH];
 
 
 

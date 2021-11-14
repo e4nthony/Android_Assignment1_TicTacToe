@@ -11,34 +11,129 @@
         android:id="@+id/game_field_InfoBar_iv"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/game_field_back_img_iv"
-        app:layout_constraintEnd_toEndOf="@+id/game_field_back_img_iv"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/game_field_back_img_iv"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/no_winner" />
+        app:srcCompat="@drawable/no_winner"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="51dp" />
 
-    <ImageView
-        android:id="@+id/game_field_back_img_iv"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="350dp"
         android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/game_field_top_img_iv"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/game_field_back_img_iv"
-        app:layout_constraintEnd_toEndOf="@+id/game_field_back_img_iv"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/game_field_back_img_iv"
-        app:layout_constraintTop_toTopOf="@+id/game_field_back_img_iv"
-        app:srcCompat="@drawable/back" />
+        <ImageView
+            android:id="@+id/game_field_back_img_iv"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/game_field_top_img_iv"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_marginEnd="350dp"
+            android:layout_marginBottom="350dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:stretchColumns="*"
+            android:weightSum="3" >
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/game_field_button00"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="00" />
+
+                <Button
+                    android:id="@+id/game_field_button01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="00" />
+
+                <Button
+                    android:id="@+id/game_field_button02"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="00" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/game_field_button10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="00" />
+
+                <Button
+                    android:id="@+id/game_field_button11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="00" />
+
+                <Button
+                    android:id="@+id/game_field_button12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="00" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/game_field_button20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="00" />
+
+                <Button
+                    android:id="@+id/game_field_button21"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="00" />
+
+                <Button
+                    android:id="@+id/game_field_button22"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="00" />
+            </TableRow>
+
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

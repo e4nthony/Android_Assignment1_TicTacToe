@@ -6,8 +6,7 @@ import com.example.hw1_tictactoe.State;
 
 public class DataVault {
 
-    private static final int ROWLENGTH = 3;
-    private static final int COLLENGTH = 3;
+    public static final int CONSTLENGTH = 3;
 
     private static DataVault INSTANCE;
     private static State[][] data;
@@ -28,8 +27,8 @@ public class DataVault {
     }
 
     public static void ClearDesk() {
-        for(int i = 0; i < ROWLENGTH; ++i){
-            for(int j = 0; j < COLLENGTH; ++j){
+        for(int i = 0; i < CONSTLENGTH; ++i){
+            for(int j = 0; j < CONSTLENGTH; ++j){
                 data[i][j] = State.NONE;
             }
         }

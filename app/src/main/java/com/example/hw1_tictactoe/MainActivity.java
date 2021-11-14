@@ -26,18 +26,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-//        setContentView(R.layout.game_field); // for testing todo: delete
+//        setContentView(R.layout.activity_main);
+        setContentView(R.layout.game_field); // for testing todo: delete
         //------------------------------------
         data = DataVault.getInstance();
-
+        buttonsLinks = new Button[CONSTLENGTH][CONSTLENGTH];
 
 
 
         // Bindings:
         // --------------------- Main Menu - activity_main ---------------------
 
-        Button menu_start_button = findViewById(R.id.menu_start_button);
+//        Button menu_start_button = findViewById(R.id.menu_start_button); // for testing todo: enable
         // TODO: if pressed >>>>  setContentView(R.layout.game_field);
 
 
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageView game_field_GridImage_iv = findViewById(R.id.game_field_GridImage_iv);
         ImageView game_field_GreenLinesImagesContainer_iv = findViewById(R.id.game_field_GreenLinesImagesContainer_iv);
 
+
         buttonsLinks[0][0] = findViewById(R.id.game_field_button00);
         buttonsLinks[0][1] = findViewById(R.id.game_field_button01);
         buttonsLinks[0][2] = findViewById(R.id.game_field_button02);
@@ -63,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // ---- bottom ----
         Button game_field_PlayAgain_button = findViewById(R.id.game_field_PlayAgain_button);
-        // TODO: if pressed >>>> performs as menu_start_button
 
         // --------------------------------------------------------------------
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        int x,y;
+        int x=-1,y=-1;
 
         switch (v.getId()) {
 
@@ -118,14 +118,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.game_field_button22:
                 x = 2; y = 2; break;
 
+            case R.id.game_field_PlayAgain_button:
+                // TODO: if pressed >>>> performs as menu_start_button
+                break;
+
             default:
                 try {
                     throw new Exception("Unknown button");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                x=-1;
-                y=-1;
                 break;
         }
         Log.d("TAG", "Try to make move = Player: " + data.getCurrentPlayer() + " Where: " + x + y + " *(RawValues[0,1,2])");

@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/game_field_back_img_iv"
+            android:id="@+id/game_field_GridImage_iv"
             android:layout_width="350dp"
             android:layout_height="350dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +38,7 @@
             app:srcCompat="@drawable/back" />
 
         <ImageView
-            android:id="@+id/game_field_top_img_iv"
+            android:id="@+id/game_field_GreenLinesImagesContainer_iv"
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:visibility="gone"
@@ -142,7 +142,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/game_field_PlayAgain_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play Again"

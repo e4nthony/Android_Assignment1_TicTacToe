@@ -11,13 +11,21 @@ import android.widget.ImageView;
 
 import com.example.hw1_tictactoe.DataVault.DataVault;
 
+/** @author Anthony Epshtein */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int CONSTLENGTH = 3;
 
     private static DataVault data;
     private static ImageButton[][] buttonsLinks;
-    private View focusOnButtonID;
+    private ImageButton focusedButtonLink;
+
+    private ImageView game_field_InfoBar_iv;
+    private ImageView game_field_GridImage_iv;
+    private ImageView game_field_GreenLinesImagesContainer_iv;
+
+    private Button game_field_PlayAgain_button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonsLinks = new ImageButton[CONSTLENGTH][CONSTLENGTH];
 
 
-
         // Bindings:
         // --------------------- Main Menu - activity_main ---------------------
 
@@ -37,15 +44,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // TODO: if pressed >>>>  setContentView(R.layout.game_field);
 
 
-
         // ---------------------------- game_field ----------------------------
 
         // ---- top - info image ----
-        ImageView game_field_InfoBar_iv = findViewById(R.id.game_field_InfoBar_iv);
+        game_field_InfoBar_iv = findViewById(R.id.game_field_InfoBar_iv);
+        game_field_InfoBar_iv.setImageResource(R.drawable.x_play);
 
         // ---- middle - desk ----
-        ImageView game_field_GridImage_iv = findViewById(R.id.game_field_GridImage_iv);
-        ImageView game_field_GreenLinesImagesContainer_iv = findViewById(R.id.game_field_GreenLinesImagesContainer_iv);
+        game_field_GridImage_iv = findViewById(R.id.game_field_GridImage_iv);
+        game_field_GreenLinesImagesContainer_iv = findViewById(R.id.game_field_GreenLinesImagesContainer_iv);
 
 
         buttonsLinks[0][0] = findViewById(R.id.game_field_img_btn00);
@@ -70,48 +77,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         // ---- bottom ----
-        Button game_field_PlayAgain_button = findViewById(R.id.game_field_PlayAgain_button);
+        game_field_PlayAgain_button = findViewById(R.id.game_field_PlayAgain_button);
 
+        game_field_PlayAgain_button.setOnClickListener(this);
         // --------------------------------------------------------------------
     }
 
     @Override
     public void onClick(View v) {
-        int x=-1,y=-1;
-        focusOnButtonID = v;
+        int x = -1, y = -1;
 
         switch (v.getId()) {
 
             case R.id.game_field_img_btn00:
-                x = 0; y = 0; break;
+                x = 0;
+                y = 0;
+                break;
 
             case R.id.game_field_img_btn01:
-                x = 0; y = 1; break;
+                x = 0;
+                y = 1;
+                break;
 
             case R.id.game_field_img_btn02:
-                x = 0; y = 2; break;
+                x = 0;
+                y = 2;
+                break;
 
             case R.id.game_field_img_btn10:
-                x = 1; y = 0; break;
+                x = 1;
+                y = 0;
+                break;
 
             case R.id.game_field_img_btn11:
-                x = 1; y = 1; break;
+                x = 1;
+                y = 1;
+                break;
 
             case R.id.game_field_img_btn12:
-                x = 1; y = 2; break;
+                x = 1;
+                y = 2;
+                break;
 
             case R.id.game_field_img_btn20:
-                x = 2; y = 0; break;
+                x = 2;
+                y = 0;
+                break;
 
             case R.id.game_field_img_btn21:
-                x = 2; y = 1; break;
+                x = 2;
+                y = 1;
+                break;
 
             case R.id.game_field_img_btn22:
-                x = 2; y = 2; break;
+                x = 2;
+                y = 2;
+                break;
 
             case R.id.game_field_PlayAgain_button:
-                // TODO: if pressed >>>> performs as menu_start_button
-                break;
+                ClearDesk();
+                return;
 
             default:
                 try {
@@ -121,19 +146,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
         }
+
+        focusedButtonLink = buttonsLinks[x][y];
+
         State thisMoveWasPerformedBy = data.getCurrentPlayer();
+
 
         Log.d("TAG", "Try to make move = Player: " + thisMoveWasPerformedBy + " Where: " + x + y + " *(RawValues[0,1,2])");
 
-        boolean result = data.makeMove(x,y);
+        boolean result = data.makeMove(x, y);
 
         switch (thisMoveWasPerformedBy) {
 
             case X:
-                focusOnButtonID.setBackgroundResource(R.drawable.x_mark);
+                focusedButtonLink.setImageResource(R.drawable.x_mark);
+                focusedButtonLink.setEnabled(false);
                 break;
             case O:
-                focusOnButtonID.setBackgroundResource(R.drawable.o_mark);
+                focusedButtonLink.setImageResource(R.drawable.o_mark);
+                focusedButtonLink.setEnabled(false);
                 break;
 
             default:
@@ -145,8 +176,69 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
+        if (data.isGameOver() == true) {
+            printVictory();
+            game_field_PlayAgain_button.setVisibility(View.VISIBLE);
+            game_field_PlayAgain_button.setEnabled(true);
 
-
-
+        }
+        else{
+            State p = data.getCurrentPlayer();
+            if (p == State.O) {  //switch to next player bar tittle
+                game_field_InfoBar_iv.setImageResource(R.drawable.o_play);
+            }
+            else {
+                game_field_InfoBar_iv.setImageResource(R.drawable.x_play);
+            }
+        }
     }
+
+    private void printVictory() {
+        State lostPlayer = data.getCurrentPlayer();
+
+        if(lostPlayer == State.X)
+        {
+            game_field_InfoBar_iv.setImageResource(R.drawable.o_win);
+        }
+        else if(lostPlayer == State.O)
+        {
+            game_field_InfoBar_iv.setImageResource(R.drawable.x_win);
+        }
+        else if(lostPlayer == State.NONE)
+        {
+            game_field_InfoBar_iv.setImageResource(R.drawable.no_winner);
+        }
+
+        // --- block buttons ---
+        for (int i = 0; i < CONSTLENGTH; ++i) {
+            for (int j = 0; j < CONSTLENGTH; ++j) {
+                buttonsLinks[i][j].setEnabled(false); // disable buttons
+            }
+        }
+
+        game_field_GreenLinesImagesContainer_iv.setImageResource(data.getGreenLineImageID());
+
+        game_field_GreenLinesImagesContainer_iv.setVisibility(View.VISIBLE);
+    }
+
+    private void ClearDesk() {
+        data.createNewGame();
+
+        game_field_PlayAgain_button.setEnabled(false);
+        game_field_PlayAgain_button.setVisibility(View.GONE);
+
+
+        game_field_InfoBar_iv.setImageResource(R.drawable.x_play);
+
+        game_field_GreenLinesImagesContainer_iv.setImageResource(R.drawable.empty);
+        game_field_GreenLinesImagesContainer_iv.setVisibility(View.GONE);
+
+        for (int i = 0; i < CONSTLENGTH; ++i) {
+            for (int j = 0; j < CONSTLENGTH; ++j) {
+                buttonsLinks[i][j].setImageResource(R.drawable.empty);  // set empty image by default
+                buttonsLinks[i][j].setEnabled(true);                    // enable buttons
+            }
+        }
+    }
+
 }

@@ -19,8 +19,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="160pt"
+        android:layout_height="160pt"
         android:background="@drawable/customborder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,8 +29,9 @@
 
         <ImageView
             android:id="@+id/game_field_GridImage_iv"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,14 +40,15 @@
 
         <ImageView
             android:id="@+id/game_field_GreenLinesImagesContainer_iv"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/back" />
+            app:srcCompat="@drawable/empty"
+            android:elevation="10dp"/>
 
         <TableLayout
             android:id="@+id/tableLayout"
@@ -55,12 +57,16 @@
             android:stretchColumns="*"
             android:visibility="visible"
             android:weightSum="3"
-            tools:layout_editor_absoluteX="5dp"
-            tools:layout_editor_absoluteY="5dp">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"><![CDATA[
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            ]]>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -71,20 +77,28 @@
                     android:id="@+id/game_field_img_btn00"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="00" />
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/empty"
+                    android:text="00"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn01"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="01" />
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/empty"
+                    android:text="01"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn02"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="02" />
-
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/empty"
+                    android:text="02"
+                    android:visibility="visible" />
 
             </TableRow>
 
@@ -97,19 +111,28 @@
                     android:id="@+id/game_field_img_btn10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="10" />
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/empty"
+                    android:text="10"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="11" />
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/empty"
+                    android:text="11"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn12"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="12" />
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/empty"
+                    android:text="12"
+                    android:visibility="visible" />
 
             </TableRow>
 
@@ -122,19 +145,28 @@
                     android:id="@+id/game_field_img_btn20"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="20" />
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/empty"
+                    android:text="20"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn21"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="21" />
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/empty"
+                    android:text="21"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn22"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="22" />
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/empty"
+                    android:text="22"
+                    android:visibility="visible" />
             </TableRow>
 
         </TableLayout>
@@ -147,7 +179,6 @@
         android:layout_height="wrap_content"
         android:text="Play Again"
         android:textSize="20sp"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

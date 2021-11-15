@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static DataVault data;
     private static ImageButton[][] buttonsLinks;
-
+    private View focusOnButtonID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonsLinks[2][1] = findViewById(R.id.game_field_img_btn21);
         buttonsLinks[2][2] = findViewById(R.id.game_field_img_btn22);
 
+        buttonsLinks[0][0].setOnClickListener(this);
+        buttonsLinks[0][1].setOnClickListener(this);
+        buttonsLinks[0][2].setOnClickListener(this);
+        buttonsLinks[1][0].setOnClickListener(this);
+        buttonsLinks[1][1].setOnClickListener(this);
+        buttonsLinks[1][2].setOnClickListener(this);
+        buttonsLinks[2][0].setOnClickListener(this);
+        buttonsLinks[2][1].setOnClickListener(this);
+        buttonsLinks[2][2].setOnClickListener(this);
+
+
         // ---- bottom ----
         Button game_field_PlayAgain_button = findViewById(R.id.game_field_PlayAgain_button);
 
@@ -67,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         int x=-1,y=-1;
+        focusOnButtonID = v;
 
         switch (v.getId()) {
 
@@ -114,6 +126,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("TAG", "Try to make move = Player: " + thisMoveWasPerformedBy + " Where: " + x + y + " *(RawValues[0,1,2])");
 
         boolean result = data.makeMove(x,y);
+
+        switch (thisMoveWasPerformedBy) {
+
+            case X:
+                focusOnButtonID.setBackgroundResource(R.drawable.x_mark);
+                break;
+            case O:
+                focusOnButtonID.setBackgroundResource(R.drawable.o_mark);
+                break;
+
+            default:
+                try {
+                    throw new Exception("Error");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
+
 
 
 

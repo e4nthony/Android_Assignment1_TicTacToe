@@ -77,24 +77,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:maxHeight="120pt"
-                    android:text="00" />
+                    android:src="@drawable/empty"
+                    android:text="00"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn01"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:text="01" />
+                    android:src="@drawable/empty"
+                    android:text="01"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn02"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:maxHeight="40pt"
-                    android:text="02" />
-
+                    android:src="@drawable/empty"
+                    android:text="02"
+                    android:visibility="visible" />
 
             </TableRow>
 
@@ -108,21 +111,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:text="10" />
+                    android:src="@drawable/empty"
+                    android:text="10"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:text="11" />
+                    android:src="@drawable/empty"
+                    android:text="11"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn12"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:text="12" />
+                    android:src="@drawable/empty"
+                    android:text="12"
+                    android:visibility="visible" />
 
             </TableRow>
 
@@ -136,21 +145,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:text="20" />
+                    android:src="@drawable/empty"
+                    android:text="20"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn21"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:text="21" />
+                    android:src="@drawable/empty"
+                    android:text="21"
+                    android:visibility="visible" />
 
                 <ImageButton
                     android:id="@+id/game_field_img_btn22"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:text="22" />
+                    android:src="@drawable/empty"
+                    android:text="22"
+                    android:visibility="visible" />
             </TableRow>
 
         </TableLayout>

@@ -2,6 +2,7 @@ package com.example.hw1_tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static DataVault data;
     private static ImageButton[][] buttonsLinks;
-    private View focusOnButtonID;
+    private ImageButton focusedButtonLink;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         int x=-1,y=-1;
-        focusOnButtonID = v;
 
         switch (v.getId()) {
 
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 x = 2; y = 2; break;
 
             case R.id.game_field_PlayAgain_button:
-                // TODO: if pressed >>>> performs as menu_start_button
+                ClearDesk();
                 break;
 
             default:
@@ -121,7 +122,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
         }
+
+        focusedButtonLink = buttonsLinks[x][y];
+
         State thisMoveWasPerformedBy = data.getCurrentPlayer();
+
 
         Log.d("TAG", "Try to make move = Player: " + thisMoveWasPerformedBy + " Where: " + x + y + " *(RawValues[0,1,2])");
 
@@ -130,10 +135,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (thisMoveWasPerformedBy) {
 
             case X:
-                focusOnButtonID.setBackgroundResource(R.drawable.x_mark);
+                focusedButtonLink.setImageResource(R.drawable.x_mark); //this image by default
+
+//                focusedButtonLink.setBackgroundResource(R.drawable.x_mark); //this image by default
+                focusedButtonLink.setVisibility(View.VISIBLE);
+                focusedButtonLink.setEnabled(false);
                 break;
             case O:
-                focusOnButtonID.setBackgroundResource(R.drawable.o_mark);
+                focusedButtonLink.setImageResource(R.drawable.o_mark); //this image by default
+
+//                focusedButtonLink.setBackgroundResource(R.drawable.o_mark);
+                focusedButtonLink.setVisibility(View.VISIBLE);
+                focusedButtonLink.setEnabled(false);
                 break;
 
             default:
@@ -145,8 +158,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
-
-
-
     }
+
+    private void ClearDesk() {
+        data.ClearDesk();
+        for(int i = 0; i < CONSTLENGTH; ++i){
+            for(int j = 0; j < CONSTLENGTH; ++j){
+                buttonsLinks[i][j].setVisibility(View.INVISIBLE); // hide images, prepare for NewGame
+
+            }
+        }
+    }
+
 }

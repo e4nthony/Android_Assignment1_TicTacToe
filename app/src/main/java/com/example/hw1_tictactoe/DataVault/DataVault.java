@@ -67,6 +67,14 @@ public class DataVault {
         data[x][y] = currentPlayer; // = O OR = X
 
         Log.d("TAG", "Move Saved = Player: " + currentPlayer + " Where: " + x + y + " *(RawValues[0,1,2])");
+
+        if (currentPlayer == State.X) {  //next player
+            currentPlayer = State.O;
+        }
+        else{
+            currentPlayer = State.X;
+        }
+
         return true;
     }
 

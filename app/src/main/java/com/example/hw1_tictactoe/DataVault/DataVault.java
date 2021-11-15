@@ -104,6 +104,7 @@ public class DataVault {
         if (isGameOverVal == false){
             if (countOfDoneMoves >= 9){
                 isGameOverVal = true;
+                currentPlayer = State.NONE; //no winner
             }
         }
 

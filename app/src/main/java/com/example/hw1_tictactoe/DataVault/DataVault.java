@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.hw1_tictactoe.R;
 import com.example.hw1_tictactoe.State;
 
+/** @author Anthony Epshtein */
 public class DataVault {
 
     private static final int CONSTLENGTH = 3;

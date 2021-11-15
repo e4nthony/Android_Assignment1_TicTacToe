@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.example.hw1_tictactoe.DataVault.DataVault;
 
+/** @author Anthony Epshtein */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int CONSTLENGTH = 3;
